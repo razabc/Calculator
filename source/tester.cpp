@@ -8,7 +8,6 @@
 using namespace std;
 
 #define ARITHMETIC_ERROR (0.00001)
-#define TESTER_DIVIDE(x,y) (static_cast<float>(x) / static_cast<float>(y))
 
 Calculator calculator{};
 float result{};
@@ -20,7 +19,6 @@ TEST(CalculatorTest, SanityTests) {
     EXPECT_EQ(calculator.subtract(7, 6, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 1);
     EXPECT_EQ(calculator.divide(10, 5, result), CALCULATOR_SUCCESS);
-    EXPECT_FLOAT_EQ(result, TESTER_DIVIDE(10, 5));
     EXPECT_FLOAT_EQ(result, 2);
     EXPECT_EQ(calculator.multiply(6, 3, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 18);
@@ -31,7 +29,6 @@ TEST(CalculatorTest, SanityTests) {
     EXPECT_EQ(calculator.subtract(-5, -1, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, -4);
     EXPECT_EQ(calculator.divide(-6, -3, result), CALCULATOR_SUCCESS);
-    EXPECT_FLOAT_EQ(result, TESTER_DIVIDE(-6, -3));
     EXPECT_FLOAT_EQ(result, 2);
     EXPECT_EQ(calculator.multiply(-9, -2, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 18);
@@ -42,7 +39,6 @@ TEST(CalculatorTest, SanityTests) {
     EXPECT_EQ(calculator.subtract(4.5, 1.5, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 3);
     EXPECT_EQ(calculator.divide(10, 2.5, result), CALCULATOR_SUCCESS);
-    EXPECT_FLOAT_EQ(result, TESTER_DIVIDE(10, 2.5));
     EXPECT_FLOAT_EQ(result, 4);
     EXPECT_EQ(calculator.multiply(6, 3.5, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 21);
@@ -53,7 +49,6 @@ TEST(CalculatorTest, SanityTests) {
     EXPECT_EQ(calculator.subtract(10, -7, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 17);
     EXPECT_EQ(calculator.divide(8, -4, result), CALCULATOR_SUCCESS);
-    EXPECT_FLOAT_EQ(result, TESTER_DIVIDE(8, -4));
     EXPECT_FLOAT_EQ(result, -2);
     EXPECT_EQ(calculator.multiply(-3, 3, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, -9);
@@ -64,7 +59,6 @@ TEST(CalculatorTest, SanityTests) {
     EXPECT_EQ(calculator.subtract(7.6, -8.8, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, 16.4);
     EXPECT_EQ(calculator.divide(7.5, -2.1, result), CALCULATOR_SUCCESS);
-    EXPECT_FLOAT_EQ(result, TESTER_DIVIDE(7.5, -2.1));
     EXPECT_NEAR(result, -3.57142, ARITHMETIC_ERROR);
     EXPECT_EQ(calculator.multiply(-1.4, 6, result), CALCULATOR_SUCCESS);
     EXPECT_FLOAT_EQ(result, -8.4);
